@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+}
+.container-xl{
+    width: 100%;
+    height: 5rem;
+    color: crimson;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: ivory;
+}
+.head{
+    margin-top: 20px;
+}
+.content{
+    width: 100%;
+    font-size: 40px;
+}
+.content>p:first-child{
+    color: coral;
+}
+.content>p:nth-child(2) {
+    font-size: 30px;
+}
+/* input[type="file"] {
+    display: none;
+} */
+.custom-file-upload {
+
+    padding: 5px;
+    width: 200px;
+    height: 45px;
+    border-radius: 8px;
+    background-color: brown;
+    color: white;
+font-size: 17px;
+font-weight: bold;
+    cursor: pointer;
+}
+footer{
+    position: relative;
+        text-align: center;
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 50px;
+        bottom: -380px;
+        font-size: 14px;
+}

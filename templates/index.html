@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-xl">
+    <p class="head">DoClassifier</p>
+</div>
+<div class="content">
+    <p>Want to classify different documents using a single click??</p>
+    <p>Click below button to upload a file.</p>
+    <form method="POST" type="file" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+        {{form.file()}}
+        {{form.submit()}}
+    </form>
+</div>
+<footer>© Copyright <span>TechTonics</span></footer>
+<script>
+    // const val= document.getElementById("doc").value;
+    // console.log(val);
+    // function getVal(){
+    //     console.log(val);
+    // }
+    ('#i_file').change(function (event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        ("img").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+        ("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>[" + tmppath + "]</strong>");
+    });
+</script>
+{% endblock %}

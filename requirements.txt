@@ -1,0 +1,18 @@
+flask 
+flask_wtf 
+wtforms
+werkzeug
+wtforms.validators
+os
+transformers 
+torch
+tqdm.notebook 
+datasets 
+pandas 
+numpy 
+pytesseract
+requests
+Pillow 
+pdf2image
+detectron2 (git clone https://github.com/facebookresearch/detectron2.git then python -m pip install -e detectron2)
+
