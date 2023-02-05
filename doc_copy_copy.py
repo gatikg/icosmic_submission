@@ -99,7 +99,7 @@ def classify_img():
     optimizer = torch.optim.AdamW(model.parameters(), lr=5e-5)
 
     global_step = 0
-    num_train_epochs = 15
+    num_train_epochs = 1
     # total number of training steps
     t_total = len(dataloader) * num_train_epochs
 
@@ -135,10 +135,10 @@ def classify_img():
     file.close()
 
     poppler_path = r"E:\MCA STUDY\MACHINE LEARNING\poppler-23.01.0\Library\bin"
-    pdf_path = r"E:\Document_Classification\testdocument2.pdf"
+    pdf_path = r"G:\icosmic_submission\testdocument2.pdf"
     pages = convert_from_path(pdf_path=pdf_path, poppler_path=poppler_path)
-    save_folder = r"E:\Document_Classification"
-    save_folder2 = r"E:\Document_Classification\Images"
+    save_folder = r"G:\icosmic_submission"
+    save_folder2 = r"G:\icosmic_submission\Images"
     c = 1
 
     for page in pages:

@@ -6,6 +6,7 @@ from datasets import Features, Sequence, ClassLabel, Value, Array2D, Array3D
 from datasets import Dataset
 import pandas as pd
 import numpy as np
+from PyPDF2 import PdfWriter, PdfReader
 import pytesseract
 import requests
 from PIL import Image, ImageDraw, ImageFont
@@ -99,7 +100,7 @@ def classify():
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
     global_step = 0
-    num_train_epochs = 15
+    num_train_epochs = 1
     # total number of training steps
     t_total = len(dataloader) * num_train_epochs
 
@@ -131,11 +132,26 @@ def classify():
         print("Training accuracy:", accuracy.item())
 
     poppler_path = r"E:\MCA STUDY\MACHINE LEARNING\poppler-23.01.0\Library\bin"
-    pdf_path = r"E:\Document_Classification\testdocument.pdf"
+    pdf_path = r"G:\icosmic_submission\testdocument.pdf"
     pages = convert_from_path(pdf_path=pdf_path, poppler_path=poppler_path)
-    save_folder = r"E:\Document_Classification"
-    save_folder2 = r"E:\Document_Classification\Images"
+    save_folder = r"G:\icosmic_submission"
+    save_folder2 = r"G:\icosmic_submission\Images"
     c = 1
+
+    pdf_file_path = "testdocument.pdf"
+    pdf_file_path_encrypted = "testdocument_encrypted.pdf"
+    pdfWriter = PdfWriter()
+    pdf = PdfReader(pdf_file_path)
+
+    for page_num in range(len(pdf.pages)):
+        pdfWriter.add_page(pdf.pages[page_num])
+
+    password = "12345"
+    pdfWriter.encrypt(password)
+
+    with open(pdf_file_path_encrypted, "wb") as f:
+        pdfWriter.write(f)
+        f.close()
 
     for page in pages:
         img_name = f"img-{c}.png"
@@ -156,4 +172,3 @@ def classify():
         print(img_name_class)
         img_name2 = img_name_class + f"{c}" + ".png"
         page.save(os.path.join(save_folder2, img_name2), "PNG")
-        c += 1

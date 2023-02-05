@@ -9,7 +9,7 @@ import os
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "supersecretkey"
-app.config["UPLOAD_FOLDER"] = r"E:\Document_Classification"
+app.config["UPLOAD_FOLDER"] = r"G:\icosmic_submission"
 
 
 class UploadFileForm(FlaskForm):
